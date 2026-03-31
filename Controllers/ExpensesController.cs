@@ -10,7 +10,7 @@ namespace ExpenseTrackerAPI_backed.Controllers
     [Route("api/[controller]")]
     public class ExpensesController : ControllerBase
     {
-        private readonly AppDbContext _context; // Entity Framework පාවිච්චි කරලා
+        private readonly AppDbContext _context; 
 
         public ExpensesController(AppDbContext context)
         {
