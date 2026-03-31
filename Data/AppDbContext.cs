@@ -1,5 +1,6 @@
-﻿using ExpenseTrackerAPI_backed.Model; // ඔයාගේ Model folder එකේ නම මෙතන තියෙන්න ඕනේ
+﻿using ExpenseTrackerAPI_backed.Model; 
 using Microsoft.EntityFrameworkCore;
+using ExpenseTrackerAPI_backed.Controllers;
 
 namespace ExpenseTrackerAPI_backed.Data
 {
