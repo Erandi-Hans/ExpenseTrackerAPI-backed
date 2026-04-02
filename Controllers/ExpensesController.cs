@@ -30,5 +30,34 @@ namespace ExpenseTrackerAPI_backed.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetExpenses), new { id = expense.Id }, expense);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateExpense(int id, Expense expense)
+        {
+            if (id != expense.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(expense).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Expenses.Any(e => e.Id == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
     }
 }
